@@ -40,4 +40,11 @@
         target: '#navbarNav',
         offset: 70
       })
+
+      const input = document.querySelector("#phone");
+      window.intlTelInput(input, {
+        initialCountry: "us",
+        preferredCountries: ["us", "gb", "in"],
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+      });
   })();
