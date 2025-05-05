@@ -41,10 +41,50 @@
         offset: 70
       })
 
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+      
+        // Check if touch-enabled device (mobile/tablet)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      
+        if (isTouchDevice) {
+       
+          cards.forEach(card => {
+            const inner = card.querySelector(".flip-card-inner");
+      
+            card.addEventListener("click", function (e) {
+              // Close other cards if open
+        
+              document.querySelectorAll(".flip-card-inner").forEach(el => {
+                if (el !== inner) el.style.transform = "none";
+              });
+      
+              // Toggle current card
+              const isFlipped = inner.style.transform === "rotateY(180deg)";
+              inner.style.transform = isFlipped ? "none" : "rotateY(180deg)";
+      
+              e.stopPropagation(); // Prevent closing immediately
+            });
+          });
+      
+          // Click anywhere else to close all flipped cards
+          document.addEventListener("click", function () {
+            document.querySelectorAll(".flip-card-inner").forEach(inner => {
+              inner.style.transform = "none";
+            });
+          }, true);
+        }
+      });
+      
+      
       const input = document.querySelector("#phone");
       window.intlTelInput(input, {
         initialCountry: "us",
         preferredCountries: ["us", "gb", "in"],
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
       });
+
+
+
   })();
