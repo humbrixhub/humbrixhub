@@ -392,18 +392,18 @@
                     <div class="row">
                         <!-- <div class="col-md-4 p-0"><img src="assets/images/contactus.jpg"/></div> -->
                         <div class="col-md-12">
-                            <form>
+                            <form id="contactForm" method="POST">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-inline-group">
                                             <label for="firstName" class="form-label">*First name</label>
-                                            <input id="firstName" type="text" class="form-control w-100" required>
+                                            <input id="firstName" name="First Name" type="text" class="form-control w-100" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-inline-group">
                                             <label for="lastName" class="form-label">*Last name</label>
-                                            <input id="lastName" type="text" class="form-control w-100" required>
+                                            <input id="lastName" name="Last Name" type="text" class="form-control w-100" required>
                                         </div>
                                     </div>
                                 </div>
@@ -412,21 +412,23 @@
                                     <div class="col-md-6">
                                         <div class="form-inline-group">
                                             <label for="phone" class="form-label">Phone #</label>
-                                            <input id="phone" type="tel" class="form-control w-100">
+                                            <input id="phone" name="Phone" type="tel" class="form-control w-100">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-inline-group">
                                             <label for="email" class="form-label">*Email</label>
-                                            <input id="email" type="email" class="form-control w-100" required>
+                                            <input id="email" name="Email type="email" class="form-control w-100" required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="message" class="form-label pb-2">What do you have in mind?</label>
-                                    <textarea id="message" class="form-control w-100"></textarea>
+                                    <textarea id="message" name="Message" class="form-control w-100"></textarea>
                                 </div>
+                                <input type="hidden" name="_subject" value="New Contact from Humbrix Hub">
+                                <input type="hidden" name="_captcha" value="false">
 
                                 <div class="text-end">
                                     <button type="submit" class="submit-btn">Submit</button>
