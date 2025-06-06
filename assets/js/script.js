@@ -85,6 +85,42 @@
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
       });
 
+// Contact form AJAX submission using FormSubmit
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+  const thankYouMessage = document.createElement("div");
+
+  thankYouMessage.className = "alert alert-success mt-4 text-center";
+  thankYouMessage.style.display = "none";
+  thankYouMessage.textContent = "✅ Thank you! We'll get back to you shortly.";
+
+  if (form) {
+    form.parentElement.appendChild(thankYouMessage);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("https://formsubmit.co/humbrixhub@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          thankYouMessage.style.display = "block";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      }).catch(error => {
+        alert("Error: " + error.message);
+      });
+    });
+  }
+});
 
 
   })();
