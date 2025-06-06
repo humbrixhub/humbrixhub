@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const formData = new FormData(form);
 
-      fetch("https://formsubmit.co/humbrixhub@gmail.com", {
+      fetch("https://formsubmit.co/connect@humbrixhub.com", {
         method: "POST",
         body: formData,
         headers: {
